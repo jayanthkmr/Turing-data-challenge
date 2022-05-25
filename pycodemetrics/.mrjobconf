@@ -1,0 +1,9 @@
+runners:
+  emr:
+    aws_access_key_id: UR_AWS_KEY
+    aws_secret_access_key: UR_AWS_SECRET_KEY
+    setup:
+    - VENV=/tmp/$mapreduce_job_id
+    - if [ ! -e $VENV ]; then virtualenv $VENV; fi
+    - . $VENV/bin/activate
+    - pip install tqdm mrjob wget
